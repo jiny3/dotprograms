@@ -7,11 +7,12 @@
 ```
 /home/x/dotprograms/
 ├── install.sh          # 全量安装脚本
-├── system/            # 系统基础工具 (4) - 混合平台
+├── system/            # 系统基础工具 (5) - 混合平台
 │   ├── paru/          # Arch: AUR助手
 │   ├── fcitx5/        # Arch: 中文输入法
 │   ├── font/          # 跨平台: 字体
-│   └── brew/          # Mac: 包管理器
+│   ├── brew/          # Mac: 包管理器
+│   └── stow/          # 跨平台: 符号链接管理
 ├── terminal/          # 终端环境工具 (14) - 跨平台核心
 │   ├── zsh/
 │   ├── starship/
@@ -73,11 +74,12 @@ cd system/paru
 
 ## 程序列表
 
-### system (4个) - 系统基础工具
+### system (5个) - 系统基础工具
 - **paru** - AUR 助手工具 (Arch)
 - **fcitx5** - 中文输入法 (Arch)
 - **font** - 字体 (跨平台)
 - **brew** - macOS包管理器 (Mac)
+- **stow** - 符号链接管理工具 (跨平台)
 
 ### terminal (14个) - 终端环境
 - **zsh** - Z Shell
@@ -120,13 +122,13 @@ cd system/paru
 
 | 分类     | Arch Linux | macOS        |
 |----------|------------|--------------|
-| system   | ✅ (3个)   | ✅ (2个)     |
+| system   | ✅ (3个)   | ✅ (3个)     |
 | terminal | ✅ (14个)  | ✅ (11个)    |
 | desktop  | ✅ (6个)   | ❌           |
 | apps     | ✅ (11个)  | ❌           |
 
-**macOS 支持的程序 (13个):**
-- 系统: brew (包管理), font (字体)
+**macOS 支持的程序 (14个):**
+- 系统: brew (包管理), font (字体), stow (符号链接管理)
 - Shell: zsh, starship, zimfw
 - 终端: ghostty, tmux
 - 编辑器: neovim, opencode
