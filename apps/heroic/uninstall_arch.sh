@@ -1,2 +1,2 @@
 #!/bin/bash
-flatpak uninstall -y com.heroicgameslauncher.hgl
+flatpak uninstall --noninteractive -y com.heroicgameslauncher.hgl

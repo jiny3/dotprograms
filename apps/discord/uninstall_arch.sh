@@ -1,2 +1,2 @@
 #!/bin/bash
-flatpak uninstall -y com.discordapp.Discord
+flatpak uninstall --noninteractive -y com.discordapp.Discord

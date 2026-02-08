@@ -1,2 +1,2 @@
 #!/bin/bash
-flatpak uninstall -y org.zotero.Zotero
+flatpak uninstall --noninteractive -y org.zotero.Zotero

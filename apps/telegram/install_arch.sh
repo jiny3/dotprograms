@@ -1,2 +1,2 @@
 #!/bin/bash
-flatpak install -u -y org.telegram.desktop
+flatpak install --noninteractive -u -y --or-update org.telegram.desktop

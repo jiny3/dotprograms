@@ -1,2 +1,2 @@
 #!/bin/bash
-flatpak install -u -y org.zotero.Zotero
+flatpak install --noninteractive -u -y --or-update org.zotero.Zotero

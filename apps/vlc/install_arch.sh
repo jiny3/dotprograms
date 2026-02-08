@@ -1,2 +1,2 @@
 #!/bin/bash
-flatpak install -u -y org.videolan.VLC
+flatpak install --noninteractive -u -y --or-update org.videolan.VLC

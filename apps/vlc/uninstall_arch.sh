@@ -1,2 +1,2 @@
 #!/bin/bash
-flatpak uninstall -y org.videolan.VLC
+flatpak uninstall --noninteractive -y org.videolan.VLC

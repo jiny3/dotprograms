@@ -1,2 +1,2 @@
 #!/bin/bash
-flatpak install -u -y com.tencent.WeChat
+flatpak install --noninteractive -u -y --or-update com.tencent.WeChat

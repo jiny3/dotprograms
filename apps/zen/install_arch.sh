@@ -1,2 +1,2 @@
 #!/bin/bash
-flatpak install -u -y app.zen_browser.zen
+flatpak install --noninteractive -u -y --or-update app.zen_browser.zen

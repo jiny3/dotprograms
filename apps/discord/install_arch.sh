@@ -1,2 +1,2 @@
 #!/bin/bash
-flatpak install -u -y com.discordapp.Discord
+flatpak install --noninteractive -u -y --or-update com.discordapp.Discord

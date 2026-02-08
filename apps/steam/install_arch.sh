@@ -1,2 +1,2 @@
 #!/bin/bash
-flatpak install -u -y com.valvesoftware.Steam
+flatpak install --noninteractive -u -y --or-update com.valvesoftware.Steam

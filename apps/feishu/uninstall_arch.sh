@@ -1,2 +1,2 @@
 #!/bin/bash
-flatpak uninstall -y cn.feishu.Feishu
+flatpak uninstall --noninteractive -y cn.feishu.Feishu

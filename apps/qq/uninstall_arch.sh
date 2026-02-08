@@ -1,2 +1,2 @@
 #!/bin/bash
-flatpak uninstall -y com.qq.QQ
+flatpak uninstall --noninteractive -y com.qq.QQ

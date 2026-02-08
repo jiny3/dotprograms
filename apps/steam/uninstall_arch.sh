@@ -1,2 +1,2 @@
 #!/bin/bash
-flatpak uninstall -y com.valvesoftware.Steam
+flatpak uninstall --noninteractive -y com.valvesoftware.Steam

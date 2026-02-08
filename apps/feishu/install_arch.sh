@@ -1,2 +1,2 @@
 #!/bin/bash
-flatpak install -u -y cn.feishu.Feishu
+flatpak install --noninteractive -u -y --or-update cn.feishu.Feishu

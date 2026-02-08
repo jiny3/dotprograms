@@ -1,2 +1,2 @@
 #!/bin/bash
-flatpak install -u -y com.tencent.wemeet
+flatpak install --noninteractive -u -y --or-update com.tencent.wemeet

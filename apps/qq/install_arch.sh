@@ -1,2 +1,2 @@
 #!/bin/bash
-flatpak install -u -y com.qq.QQ
+flatpak install --noninteractive -u -y --or-update com.qq.QQ

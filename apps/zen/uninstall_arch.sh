@@ -1,2 +1,2 @@
 #!/bin/bash
-flatpak uninstall -y app.zen_browser.zen
+flatpak uninstall --noninteractive -y app.zen_browser.zen

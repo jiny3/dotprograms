@@ -1,2 +1,2 @@
 #!/bin/bash
-flatpak uninstall -y com.tencent.WeChat
+flatpak uninstall --noninteractive -y com.tencent.WeChat

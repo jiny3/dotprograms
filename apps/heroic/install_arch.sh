@@ -1,2 +1,2 @@
 #!/bin/bash
-flatpak install -u -y com.heroicgameslauncher.hgl
+flatpak install --noninteractive -u -y --or-update com.heroicgameslauncher.hgl
