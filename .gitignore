@@ -1,0 +1,32 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+.directory
+
+# Temporary files
+*.swp
+*.swo
+*.tmp
+*.bak
+*.log
+
+# Editor specific
+.vscode/
+.idea/
+*.sublime-*
+
+# Build artifacts
+*.o
+*.so
+*.dylib
+*.dll
+*.exe
+
+# Package manager
+node_modules/
+__pycache__/
+*.pyc
