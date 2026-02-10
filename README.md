@@ -23,13 +23,16 @@ dotprograms/
 │   ├── stow/
 │   ├── better-cli/
 │   └── ...
-├── desktop/           # 桌面环境组件 (10) - Arch Linux 专属
+├── desktop/           # 桌面环境组件 (12) - Arch Linux 专属
 │   ├── niri/
 │   ├── noctalia/
 │   ├── flatpak/
+│   ├── flatseal/
 │   ├── ly/
 │   ├── mate-polkit/
 │   ├── xorg-xrdb/
+│   ├── grim/
+│   ├── slurp/
 │   └── ...
 ├── apps/              # GUI 应用程序 (11) - Arch Linux 专属
 │   ├── discord/
@@ -99,7 +102,7 @@ cd terminal/neovim && ./uninstall_arch.sh
 - **trash-cli** - 命令行回收站
 - **podman** - 容器引擎
 
-### desktop (10个)
+### desktop (12个)
 - **niri** - 滚动平铺 Wayland 合成器
 - **noctalia** - 桌面面板和启动器
 - **xdg** - 桌面集成门户
@@ -110,6 +113,8 @@ cd terminal/neovim && ./uninstall_arch.sh
 - **xorg-xrdb** - X11 资源数据库管理
 - **swayidle** - Wayland 空闲管理守护进程
 - **satty** - 截图标注工具
+- **grim** - 屏幕捕获工具
+- **slurp** - 框选工具
 
 ### apps (11个)
 - **discord** - 游戏社区沟通平台
@@ -134,7 +139,7 @@ cd terminal/neovim && ./uninstall_arch.sh
 |------|:----------:|:-----:|
 | system | 5 | 2 |
 | terminal | 15 | 11 |
-| desktop | 10 | -- |
+| desktop | 12 | -- |
 | apps | 11 | -- |
 | dev | 2 | 2 |
 
