@@ -3,6 +3,7 @@
 # dotprograms 全量安装脚本
 # 支持 Arch Linux 和 macOS
 # 自动检测系统并按优先级安装所有程序
+# 包含 5 个分类: system, terminal, desktop, apps, dev
 #
 
 set -euo pipefail
@@ -228,9 +229,9 @@ main() {
     
     # 显示运行模式
     if [[ "${os_type}" == "mac" ]]; then
-        info "macOS 模式: 扫描所有 install_mac.sh 脚本"
+        info "macOS 模式: 扫描所有 install_mac.sh 脚本 (system/terminal/dev 分类)"
     else
-        info "Arch Linux 模式: 扫描所有 install_arch.sh 脚本"
+        info "Arch Linux 模式: 扫描所有 install_arch.sh 脚本 (全部分类)"
     fi
     
     info "开始全量安装..."
