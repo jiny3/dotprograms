@@ -1,2 +1,3 @@
 #!/bin/bash
-paru -S --noconfirm --needed neovim
+# luarocks: image.nvim required
+paru -S --noconfirm --needed neovim luarocks
