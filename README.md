@@ -1,6 +1,6 @@
 # dotprograms
 
-跨平台程序安装管理系统 (支持 Arch Linux 和 macOS)
+个人程序管理 (支持 Arch Linux 和 macOS)
 
 ## 项目结构
 
