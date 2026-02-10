@@ -1,2 +1,2 @@
 #!/bin/bash
-paru -S --noconfirm --needed mihomo
+paru -S --noconfirm --needed mihomo-bin
