@@ -23,13 +23,13 @@ dotprograms/
 │   ├── stow/
 │   ├── better-cli/
 │   └── ...
-├── desktop/           # 桌面环境组件 (12) - Arch Linux 专属
+├── desktop/           # 桌面环境组件 (11) - Arch Linux 专属
 │   ├── niri/
 │   ├── noctalia/
 │   ├── flatpak/
 │   ├── flatseal/
 │   ├── ly/
-│   ├── mate-polkit/
+│   ├── gpu-screen-recorder/
 │   ├── xorg-xrdb/
 │   ├── grim/
 │   ├── slurp/
@@ -39,8 +39,9 @@ dotprograms/
 │   ├── wechat/
 │   ├── steam/
 │   └── ...
-└── dev/               # 开发工具 (2)
+└── dev/               # 开发工具 (3)
     ├── go/
+    ├── nodejs/
     └── uv/
 ```
 
@@ -102,16 +103,15 @@ cd terminal/neovim && ./uninstall_arch.sh
 - **trash-cli** - 命令行回收站
 - **podman** - 容器引擎
 
-### desktop (12个)
+### desktop (11个)
 - **niri** - 滚动平铺 Wayland 合成器
 - **noctalia** - 桌面面板和启动器
 - **xdg** - 桌面集成门户
 - **flatpak** - 沙盒应用包管理器
 - **flatseal** - Flatpak 权限管理器
 - **ly** - TUI 登录管理器
-- **mate-polkit** - 权限认证代理
+- **gpu-screen-recorder** - 屏幕录制gpu支持
 - **xorg-xrdb** - X11 资源数据库管理
-- **swayidle** - Wayland 空闲管理守护进程
 - **satty** - 截图标注工具
 - **grim** - 屏幕捕获工具
 - **slurp** - 框选工具
@@ -129,24 +129,25 @@ cd terminal/neovim && ./uninstall_arch.sh
 - **zen** - 隐私优先的浏览器
 - **zotero** - 文献管理工具
 
-### dev (2个)
+### dev (3个)
 - **go** - Go 语言工具链
+- **nodejs** - Node.js 运行环境
 - **uv** - Python 环境管理工具
 
 ## 平台支持
 
 | 分类 | Arch Linux | macOS |
 |------|:----------:|:-----:|
-| system | 5 | 2 |
+| system | 6 | 2 |
 | terminal | 15 | 11 |
-| desktop | 12 | -- |
+| desktop | 11 | -- |
 | apps | 11 | -- |
-| dev | 2 | 2 |
+| dev | 3 | 3 |
 
-**macOS 支持的程序 (15个):**
+**macOS 支持的程序 (16个):**
 - 系统: brew, font
 - 终端: starship, zimfw, ghostty, tmux, neovim, opencode, yazi, lazygit, stow, better-cli, fastfetch
-- 开发: go, uv
+- 开发: go, nodejs, uv
 
 ## 添加新程序
 
