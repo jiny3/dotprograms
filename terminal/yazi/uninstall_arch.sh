@@ -1,2 +1,2 @@
 #!/bin/bash
-paru -Rns --noconfirm yazi-git
+paru -Rns --noconfirm yazi

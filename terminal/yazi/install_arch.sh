@@ -1,2 +1,2 @@
 #!/bin/bash
-paru -S --noconfirm --needed yazi-git
+paru -S --noconfirm --needed yazi
