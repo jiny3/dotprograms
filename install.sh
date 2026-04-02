@@ -36,6 +36,28 @@ warn() {
     echo -e "${YELLOW}[WARN]${NC} $*" >&2
 }
 
+# 显示帮助信息
+show_help() {
+    cat <<EOF
+用法: ${SCRIPT_NAME} [选项]
+
+dotprograms 全量安装脚本
+自动检测系统并按优先级安装所有程序
+
+选项:
+  --help              显示此帮助信息
+  --dry-run           预览模式，显示待安装程序但不执行
+  --category <name>   只安装指定分类
+                      可选: system, terminal, desktop, apps, dev
+
+示例:
+  ${SCRIPT_NAME}                           # 全量安装
+  ${SCRIPT_NAME} --dry-run                 # 预览所有待安装程序
+  ${SCRIPT_NAME} --category terminal       # 只安装终端工具
+  ${SCRIPT_NAME} --dry-run --category dev  # 预览开发工具
+EOF
+}
+
 # 检测操作系统
 detect_os() {
     if [[ "${OSTYPE}" == "darwin"* ]]; then
@@ -99,14 +121,18 @@ collect_programs() {
     local install_script="$1"
     local -n priority_ref="$2"  # nameref for priority_programs
     local -n normal_ref="$3"    # nameref for normal_programs
+    local target_category="${4:-}"
     
     local category category_dir prog_dir prog_name prog_id script_path
     
-    # 遍历所有分类目录
     for category_dir in "${PROGRAMS_DIR}"/*/; do
         [[ ! -d "${category_dir}" ]] && continue
         
         category="$(basename "${category_dir}")"
+        
+        if [[ -n "${target_category}" ]] && [[ "${category}" != "${target_category}" ]]; then
+            continue
+        fi
         
         # 遍历分类下的所有程序目录
         for prog_dir in "${category_dir}"*/; do
@@ -174,7 +200,31 @@ execute_installation() {
     done
 }
 
-# 显示安装结果摘要
+show_dry_run() {
+    local -n priority_ref="$1"
+    local -n normal_ref="$2"
+    local total=0
+    local prog_info prog_type prog_id
+    
+    info "预览模式 - 以下程序将被安装:"
+    echo ""
+    
+    for prog_info in "${priority_ref[@]}"; do
+        IFS='|' read -r prog_type prog_id _ <<< "${prog_info}"
+        total=$((total + 1))
+        echo -e "  ${GREEN}[优先]${NC} ${prog_id}"
+    done
+    
+    for prog_info in "${normal_ref[@]}"; do
+        IFS='|' read -r prog_id _ <<< "${prog_info}"
+        total=$((total + 1))
+        echo -e "  ${CYAN}[普通]${NC} ${prog_id}"
+    done
+    
+    echo ""
+    info "共计 ${total} 个程序"
+}
+
 show_summary() {
     local os_type="$1"
     local install_script="$2"
@@ -205,11 +255,47 @@ main() {
     local installed=0
     local failed=0
     local counter=0
+    local dry_run=false
+    local target_category=""
     
-    declare -a priority_programs=()  # 优先安装列表
-    declare -a normal_programs=()    # 普通程序列表
+    declare -a priority_programs=()
+    declare -a normal_programs=()
     
-    # 检测操作系统
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            --help)
+                show_help
+                exit 0
+                ;;
+            --dry-run)
+                dry_run=true
+                shift
+                ;;
+            --category)
+                if [[ -z "${2:-}" ]]; then
+                    error "--category 需要指定分类名称"
+                    show_help
+                    exit 1
+                fi
+                target_category="$2"
+                case "${target_category}" in
+                    system|terminal|desktop|apps|dev) ;;
+                    *)
+                        error "无效分类: ${target_category}"
+                        error "可选分类: system, terminal, desktop, apps, dev"
+                        exit 1
+                        ;;
+                esac
+                shift 2
+                ;;
+            *)
+                error "未知选项: $1"
+                show_help
+                exit 1
+                ;;
+        esac
+    done
+    
     os_type="$(detect_os)"
     
     if [[ "${os_type}" == "unknown" ]]; then
@@ -219,36 +305,37 @@ main() {
     
     info "检测到操作系统: ${os_type}"
     
-    # 检查依赖
     if ! check_dependencies "${os_type}"; then
         exit 1
     fi
     
-    # 确定安装脚本名称
     install_script="install_${os_type}.sh"
     
-    # 显示运行模式
     if [[ "${os_type}" == "mac" ]]; then
         info "macOS 模式: 扫描所有 install_mac.sh 脚本 (system/terminal/dev 分类)"
     else
         info "Arch Linux 模式: 扫描所有 install_arch.sh 脚本 (全部分类)"
     fi
     
-    info "开始全量安装..."
+    if [[ -n "${target_category}" ]]; then
+        info "指定分类: ${target_category}"
+    fi
     
-    # 收集待安装程序
-    collect_programs "${install_script}" priority_programs normal_programs
+    collect_programs "${install_script}" priority_programs normal_programs "${target_category}"
     
-    # 执行安装
+    if [[ "${dry_run}" == true ]]; then
+        show_dry_run priority_programs normal_programs
+        exit 0
+    fi
+    
+    info "开始安装..."
+    
     execute_installation priority_programs normal_programs counter installed failed
     
-    # 计算总数
     total=${counter}
     
-    # 显示结果摘要
     show_summary "${os_type}" "${install_script}" "${total}" "${installed}" "${failed}"
     
-    # 返回退出码
     if [[ ${failed} -gt 0 ]]; then
         exit 1
     else
