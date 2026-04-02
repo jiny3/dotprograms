@@ -7,14 +7,17 @@
 ```
 dotprograms/
 ├── install.sh          # 全量安装脚本
-├── system/            # 系统基础工具 (6)
+├── system/            # 系统基础工具 (9)
 │   ├── paru/          # AUR 助手工具
 │   ├── brew/          # macOS 包管理器
 │   ├── fcitx5/        # 中文输入法引擎
 │   ├── font/          # 系统字体配置
 │   ├── cliphist/      # 剪贴板历史管理
-│   └── xwayland/      # X11 兼容层
-├── terminal/          # 终端环境工具 (15)
+│   ├── xwayland/      # X11 兼容层
+│   ├── sshfs/         # SSH 文件系统客户端
+│   ├── timeshift/     # 系统备份工具
+│   └── vm/            # 虚拟化支持 (QEMU/libvirt)
+├── terminal/          # 终端环境工具 (16)
 │   ├── zsh/
 │   ├── starship/
 │   ├── neovim/
@@ -34,7 +37,7 @@ dotprograms/
 │   ├── grim/
 │   ├── slurp/
 │   └── ...
-├── apps/              # GUI 应用程序 (11) - Arch Linux 专属
+├── apps/              # GUI 应用程序 (12) - Arch Linux 专属
 │   ├── discord/
 │   ├── wechat/
 │   ├── steam/
@@ -78,15 +81,18 @@ cd terminal/neovim && ./uninstall_arch.sh
 
 ## 程序列表
 
-### system (6个)
+### system (9个)
 - **paru** - AUR 助手工具
 - **brew** - macOS 包管理器
 - **fcitx5** - 中文输入法引擎
 - **font** - 系统字体配置
 - **cliphist** - 剪贴板历史管理
 - **xwayland** - X11 兼容层
+- **sshfs** - SSH 文件系统客户端
+- **timeshift** - 系统备份工具
+- **vm** - 虚拟化支持 (QEMU/libvirt)
 
-### terminal (15个)
+### terminal (16个)
 - **zsh** - 命令行 Shell
 - **zimfw** - Zsh 插件管理器
 - **starship** - 跨 Shell 提示符
@@ -99,6 +105,7 @@ cd terminal/neovim && ./uninstall_arch.sh
 - **stow** - 符号链接管理工具
 - **better-cli** - 现代命令行工具集
 - **fastfetch** - 系统信息显示工具
+- **gdu** - 终端磁盘用量分析工具
 - **mihomo** - 多协议代理工具
 - **trash-cli** - 命令行回收站
 - **podman** - 容器引擎
@@ -116,7 +123,7 @@ cd terminal/neovim && ./uninstall_arch.sh
 - **grim** - 屏幕捕获工具
 - **slurp** - 框选工具
 
-### apps (11个)
+### apps (12个)
 - **discord** - 游戏社区沟通平台
 - **feishu** - 企业办公协作平台
 - **qq** - 即时通讯软件
@@ -125,6 +132,7 @@ cd terminal/neovim && ./uninstall_arch.sh
 - **wemeet** - 视频会议工具
 - **steam** - PC 游戏平台
 - **heroic** - Epic/GOG 游戏启动器
+- **reqable** - API 调试工具
 - **vlc** - 全格式媒体播放器
 - **zen** - 隐私优先的浏览器
 - **zotero** - 文献管理工具
@@ -138,10 +146,10 @@ cd terminal/neovim && ./uninstall_arch.sh
 
 | 分类 | Arch Linux | macOS |
 |------|:----------:|:-----:|
-| system | 6 | 2 |
-| terminal | 15 | 11 |
+| system | 9 | 2 |
+| terminal | 16 | 11 |
 | desktop | 11 | -- |
-| apps | 11 | -- |
+| apps | 12 | -- |
 | dev | 3 | 3 |
 
 **macOS 支持的程序 (16个):**
