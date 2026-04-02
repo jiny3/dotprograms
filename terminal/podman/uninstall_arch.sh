@@ -1,2 +1,2 @@
 #!/bin/bash
-paru -Rns --noconfirm podman podman-compose
+paru -Rns --noconfirm podman podman-compose dockmate
